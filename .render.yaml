@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: fastapi-app
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -w 1 -k uvicorn.workers.UvicornWorker main:app
+    env: python
+    region: oregon  # or change to your preferred region
+    plan: free
+    branch: main  # or whatever your Git branch is
+    autoDeploy: true
