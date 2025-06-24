@@ -1,14 +1,24 @@
+#services:
+#  - type: web
+#    name: fastapi-app
+#    runtime: python
+#    buildCommand: pip install -r requirements.txt
+#    startCommand: gunicorn -w 1 -k uvicorn.workers.UvicornWorker main:app --bind 0.0.0.0:$PORT
+#    env: python
+#    region: frankfurt  # or change to your preferred region
+#    plan: free
+#    branch: main  # or whatever your Git branch is
+#    autoDeploy: true
+#    envVars:
+#      - key: PORT
+#        value: 10000
+
 services:
   - type: web
     name: fastapi-app
-    runtime: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn -w 1 -k uvicorn.workers.UvicornWorker main:app --bind 0.0.0.0:$PORT
     env: python
-    region: frankfurt  # or change to your preferred region
-    plan: free
-    branch: main  # or whatever your Git branch is
-    autoDeploy: true
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -k uvicorn.workers.UvicornWorker main:app
     envVars:
       - key: PORT
         value: 10000
