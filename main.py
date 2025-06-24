@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from pydantic import BaseModel, Field
 from typing import List
 import numpy as np
+import os
+import uvicorn
 
 app = FastAPI()
 
@@ -95,3 +97,6 @@ async def predict(data: CensusData) -> dict:
     prediction = model.predict(input_array)[0]
 
     return {"prediction": prediction}
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)

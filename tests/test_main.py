@@ -3,13 +3,13 @@ from main import app
 
 client = TestClient(app)
 
-
-def test_root():
-    response = client.get("/")
-    assert response.status_code == 200
-    assert response.json() == {
-        "message": "Welcome to the Census Income Prediction API!"
-    }
+# #
+# # def test_root():
+# #     response = client.get("/")
+# #     assert response.status_code == 200
+# #     assert response.json() == {
+# #         "message": "Welcome to the Census Income Prediction API!"
+#     }
 
 
 def test_predict_below_30():

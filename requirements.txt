@@ -3,9 +3,10 @@ pandas
 scikit-learn
 pytest
 requests
-fastapi==0.115.1
-uvicorn==0.29.0
+fastapi==0.115.13
+uvicorn[standard]
 gunicorn
 flake8
-dvc[s3]
+dvc
+boto3
 joblib
