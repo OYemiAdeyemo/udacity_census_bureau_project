@@ -1,6 +1,6 @@
 import requests
 
-url = "https://your-render-service-url.onrender.com/predict"
+url = "https://udacity-census-bureau-project.onrender.com"
 
 sample = {
     "age": 39,
