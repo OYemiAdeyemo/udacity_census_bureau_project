@@ -3,7 +3,7 @@ services:
     name: fastapi-app
     runtime: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn -w 1 -k uvicorn.workers.UvicornWorker main:app --bind 0.0.0.0:$PORT
+    startCommand: gunicorn app:app
     #env: python
     region: frankfurt  # or change to your preferred region
     plan: free
