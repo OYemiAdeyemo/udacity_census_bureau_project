@@ -3100,7 +3100,7 @@ description = "Fast, correct Python JSON library supporting dataclasses, datetim
 optional = false
 python-versions = ">=3.9"
 groups = ["main"]
-markers = "python_version >= \"3.10\" and implementation_name == \"cpython\""
+markers = "implementation_name == \"cpython\" and python_version >= \"3.10\""
 files = [
     {file = "orjson-3.10.18-cp310-cp310-macosx_10_15_x86_64.macosx_11_0_arm64.macosx_10_15_universal2.whl", hash = "sha256:a45e5d68066b408e4bc383b6e4ef05e717c65219a9e1390abc6155a520cac402"},
     {file = "orjson-3.10.18-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:be3b9b143e8b9db05368b13b04c84d37544ec85bb97237b3a923f076265ec89c"},
@@ -6164,5 +6164,5 @@ type = ["pytest-mypy"]
 
 [metadata]
 lock-version = "2.1"
-python-versions = ">=3.8,<3.14"
-content-hash = "c8b705119e661e1e86b49f14ccb56896913c0a1fa26c3b6b749bcb9fb1741003"
+python-versions = ">=3.8,<3.13"
+content-hash = "147dd724cee36d9260c6d85df90712f5afad2b1aa5ea711ffe2795968fd9d681"
