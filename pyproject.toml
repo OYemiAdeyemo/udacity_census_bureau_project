@@ -1,0 +1,50 @@
+#[project]
+#name = "udacity-census-bureau"
+#version = "0.1.0"
+#description = ""
+#authors = [
+#    {name = "Opeyemi Adeyemo",email = "adeyemoopeyemi@gmail.com"}
+#]
+#readme = "README.md"
+#requires-python = ">=3.12"
+#dependencies = [
+#]
+
+
+
+
+[tool.poetry]
+name = "census-api"
+version = "0.1.0"
+description = " Udacity Nanodegree Project "
+authors = [
+    {name = "Opeyemi Adeyemo",email = "adeyemoopeyemi@gmail.com"}]
+license = "MIT"
+readme = "README.md"
+packages = [{ include = "main" }]
+
+[tool.poetry.dependencies]
+python = ">=3.8,<3.12"
+fastapi = "0.115.13"
+uvicorn = {extras = ["standard"], version = "*"}
+gunicorn = "*"
+numpy = "*"
+pandas = "*"
+scikit-learn = "*"
+pytest = "*"
+requests = "*"
+flake8 = "*"
+dvc = "*"
+boto3 = "*"
+joblib = "*"
+
+[tool.poetry.scripts]
+start = "gunicorn -k uvicorn.workers.UvicornWorker main:app --bind 0.0.0.0:${PORT}"
+
+#[build-system]
+#requires = ["poetry-core>=1.0.0"]
+#build-backend = "poetry.core.masonry.api"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

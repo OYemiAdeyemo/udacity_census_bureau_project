@@ -13,12 +13,24 @@
 #      - key: PORT
 #        value: 10000
 
+#services:
+#  - type: web
+#    name: fastapi-app
+#    env: python
+#    buildCommand: pip install -r requirements.txt
+#    startCommand: gunicorn -k uvicorn.workers.UvicornWorker main:app
+#    envVars:
+#      - key: PORT
+#        value: 10000
+
+
 services:
   - type: web
-    name: fastapi-app
-    env: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn -k uvicorn.workers.UvicornWorker main:app
-    envVars:
-      - key: PORT
-        value: 10000
+    name: census-api
+    runtime: python
+    buildCommand: |
+      pip install poetry
+      poetry install
+
+    startCommand: |
+      poetry run gunicorn -k uvicorn.workers.UvicornWorker main:app --bind 0.0.0.0:$PORT
