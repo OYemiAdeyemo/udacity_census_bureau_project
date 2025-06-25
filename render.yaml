@@ -1,17 +1,17 @@
-#services:
-#  - type: web
-#    name: fastapi-app
-#    runtime: python
-#    buildCommand: pip install -r requirements.txt
-#    startCommand: gunicorn -w 1 -k uvicorn.workers.UvicornWorker main:app --bind 0.0.0.0:$PORT
-#    env: python
-#    region: frankfurt  # or change to your preferred region
-#    plan: free
-#    branch: main  # or whatever your Git branch is
-#    autoDeploy: true
-#    envVars:
-#      - key: PORT
-#        value: 10000
+services:
+  - type: web
+    name: fastapi-app
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -w 1 -k uvicorn.workers.UvicornWorker main:app --bind 0.0.0.0:$PORT
+    #env: python
+    region: frankfurt  # or change to your preferred region
+    plan: free
+    branch: main  # or whatever your Git branch is
+    autoDeploy: true
+    envVars:
+      - key: PORT
+        value: 10000
 
 #services:
 #  - type: web
@@ -24,16 +24,16 @@
 #        value: 10000
 
 
-services:
-  - type: web
-    name: census-api
-    env: python
-    plan: free
-    buildCommand: |
-      pip install poetry
-      poetry install --no-root
-    startCommand: |
-      poetry run gunicorn -k uvicorn.workers.UvicornWorker main:app --bind 0.0.0.0:$PORT
-    envVars:
-      - key: PORT
-        value: "10000"
+#services:
+#  - type: web
+#    name: census-api
+#    env: python
+#    plan: free
+#    pythonVersion: "3.12"
+#    buildCommand: |
+#      pip install -r requirement.txt
+#    startCommand: |
+#      gunicorn -k uvicorn.workers.UvicornWorker main:app --bind 0.0.0.0:$PORT
+#    envVars:
+#      - key: PORT
+#        value: "10000"
