@@ -27,10 +27,13 @@
 services:
   - type: web
     name: census-api
-    runtime: python
+    env: python
+    plan: free
     buildCommand: |
       pip install poetry
-      poetry install
-
+      poetry install --no-root
     startCommand: |
       poetry run gunicorn -k uvicorn.workers.UvicornWorker main:app --bind 0.0.0.0:$PORT
+    envVars:
+      - key: PORT
+        value: "10000"
