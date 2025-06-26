@@ -63,8 +63,8 @@ def process_data(
             y = lb.transform(y.values).ravel()
         except AttributeError:
             print(
-                ''' Warning: LabelBinarizer not provided or invalid; "
-                y will remain unchanged.'''
+                """ Warning: LabelBinarizer not provided or invalid; "
+                y will remain unchanged."""
             )
         except Exception as e:
             print(f"Unexpected error during label transform: {e}")

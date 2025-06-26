@@ -1,0 +1,13 @@
+# .flake8
+[flake8]
+exclude =
+    .git,
+    __pycache__,
+    venv,
+    build,
+    dist,
+    migrations
+    sanitycheck.py
+
+# Optional: Set max line length or ignore specific rules
+max-line-length = 79

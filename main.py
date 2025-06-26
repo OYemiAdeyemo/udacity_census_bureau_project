@@ -6,10 +6,9 @@ import os
 import uvicorn
 
 app = FastAPI()
-
 @app.get("/")
-def read_root():
-    return {"message": "Welcome!"}
+async def root() -> dict:
+    return {"message": "Welcome to the Census Income Prediction API!"}
 
 # Example column names with hyphens
 # Assume your model expects these features:
@@ -68,11 +67,6 @@ class CensusData(BaseModel):
         }
 
 
-@app.get("/")
-async def root() -> dict:
-    return {"message": "Welcome to the Census Income Prediction API!"}
-
-
 @app.post("/predict")
 async def predict(data: CensusData) -> dict:
     # Convert input data to numpy array in the order expected by the model
@@ -97,6 +91,8 @@ async def predict(data: CensusData) -> dict:
     prediction = model.predict(input_array)[0]
 
     return {"prediction": prediction}
+
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
     uvicorn.run("main:app", host="0.0.0.0", port=port)
