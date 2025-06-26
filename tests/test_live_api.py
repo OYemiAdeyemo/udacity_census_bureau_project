@@ -47,16 +47,33 @@ sample_data = {
 }
 
 
-def test_api():
-    try:
-        # Send POST request
-        response = requests.post(
-            "https://udacity-census-bureau-project-new.onrender.com/predict",
-            headers={"Content-Type": "application/json"},
-            data=json.dumps(sample_data),
-        )
+# Example sample data – adjust based on your API schema
+sample_data = {
+    "age": 39,
+    "workclass": "State-gov",
+    "fnlgt": 77516,
+    "education": "Bachelors",
+    "education-num": 13,
+    "marital-status": "Never-married",
+    "occupation": "Adm-clerical",
+    "relationship": "Not-in-family",
+    "race": "White",
+    "sex": "Male",
+    "capital-gain": 2174,
+    "capital-loss": 0,
+    "hours-per-week": 40,
+    "native-country": "United-States"
+}
 
-        # Get results
+
+def test_api():
+    url = "https://udacity-census-bureau-project-new.onrender.com/predict"
+    headers = {"Content-Type": "application/json"}
+
+    try:
+        response = requests.post(
+            url, headers=headers, data=json.dumps(sample_data)
+        )
         status_code = response.status_code
         result = response.json() if status_code == 200 else response.text
 
@@ -74,7 +91,6 @@ def test_api():
         }
 
 
-# Execute test
 if __name__ == "__main__":
     test_result = test_api()
 
@@ -85,3 +101,4 @@ if __name__ == "__main__":
         print("\n✅ Request succeeded!")
     else:
         print("\n❌ Request failed!")
+
