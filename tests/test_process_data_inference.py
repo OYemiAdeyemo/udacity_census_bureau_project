@@ -1,9 +1,7 @@
 import numpy as np
 import pandas as pd
 import pytest
-from sklearn.ensemble import RandomForestClassifier
 from model.data import process_data
-from model.train_model import train_model, inference, compute_model_metrics
 import sys
 import os
 

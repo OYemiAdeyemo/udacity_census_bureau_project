@@ -62,7 +62,7 @@ sample_data = {
     "capital-gain": 2174,
     "capital-loss": 0,
     "hours-per-week": 40,
-    "native-country": "United-States"
+    "native-country": "United-States",
 }
 
 
@@ -71,9 +71,7 @@ def test_api():
     headers = {"Content-Type": "application/json"}
 
     try:
-        response = requests.post(
-            url, headers=headers, data=json.dumps(sample_data)
-        )
+        response = requests.post(url, headers=headers, data=json.dumps(sample_data))
         status_code = response.status_code
         result = response.json() if status_code == 200 else response.text
 
@@ -101,4 +99,3 @@ if __name__ == "__main__":
         print("\n✅ Request succeeded!")
     else:
         print("\n❌ Request failed!")
-
