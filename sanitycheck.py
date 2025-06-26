@@ -1,5 +1,4 @@
 from os import path
-
 import argparse
 import importlib
 import inspect
@@ -14,10 +13,12 @@ def run_sanity_check(test_dir):
 
     # assert path.isdir(test_dir), FAIL_COLOR+f"No direcotry named {test_dir} found in {os.getcwd()}"
     print(
-        "This script will perform a sanity test to ensure your code meets the criteria in the rubric.\n"
+        "This script will perform a sanity test to ensure your code meets the "
+        "criteria in the rubric.\n"
     )
     print(
-        "Please enter the path to the file that contains your test cases for the GET() and POST() methods"
+        "Please enter the path to the file that contains your test cases for "
+        "the GET() and POST() methods"
     )
     print("The path should be something like abc/def/test_xyz.py")
     filepath = input("> ")
@@ -61,8 +62,9 @@ def run_sanity_check(test_dir):
         print(FAIL_COLOR + "No test cases were detected for the GET() method.")
         print(
             FAIL_COLOR
-            + "\nPlease make sure you have a test case for the GET method.\
-            This MUST test both the status code as well as the contents of the request object.\n"
+            + "\nPlease make sure you have a test case for the GET method. This "
+            "MUST test both the status code as well as the contents of the "
+            "request object.\n"
         )
         SANITY_TEST_PASSING = False
 
@@ -78,16 +80,16 @@ def run_sanity_check(test_dir):
             print(FAIL_COLOR + f"[{WARNING_COUNT}]")
             WARNING_COUNT += 1
             print(
-                FAIL_COLOR
-                + "Your test case for GET() does not seem to be testing the response code.\n"
+                FAIL_COLOR + "Your test case for GET() does not seem to be testing the "
+                "response code.\n"
             )
 
         if not TEST_FOR_GET_METHOD_RESPONSE_BODY:
             print(FAIL_COLOR + f"[{WARNING_COUNT}]")
             WARNING_COUNT += 1
             print(
-                FAIL_COLOR
-                + "Your test case for GET() does not seem to be testing the CONTENTS of the response.\n"
+                FAIL_COLOR + "Your test case for GET() does not seem to be testing the "
+                "CONTENTS of the response.\n"
             )
 
     # POST()
@@ -102,7 +104,8 @@ def run_sanity_check(test_dir):
         print(
             FAIL_COLOR
             + "Please make sure you have TWO test cases for the POST() method."
-            + "\nOne test case for EACH of the possible inferences (results/outputs) of the ML model.\n"
+            + "\nOne test case for EACH of the possible inferences (results/outputs) "
+            "of the ML model.\n"
         )
         SANITY_TEST_PASSING = False
     else:
@@ -113,7 +116,8 @@ def run_sanity_check(test_dir):
             print(
                 FAIL_COLOR
                 + "Please make sure you have two test cases for the POST() method."
-                + "\nOne test case for EACH of the possible inferences (results/outputs) of the ML model.\n"
+                + "\nOne test case for EACH of the possible inferences (results/outputs) "
+                "of the ML model.\n"
             )
             SANITY_TEST_PASSING = False
 
@@ -130,14 +134,16 @@ def run_sanity_check(test_dir):
             WARNING_COUNT += 1
             print(
                 FAIL_COLOR
-                + "One or more of your test cases for POST() do not seem to be testing the response code.\n"
+                + "One or more of your test cases for POST() do not seem to be "
+                "testing the response code.\n"
             )
         if not TEST_FOR_POST_METHOD_RESPONSE_BODY:
             print(FAIL_COLOR + f"[{WARNING_COUNT}]")
             WARNING_COUNT += 1
             print(
                 FAIL_COLOR
-                + "One or more of your test cases for POST() do not seem to be testing the contents of the response.\n"
+                + "One or more of your test cases for POST() do not seem to be "
+                "testing the contents of the response.\n"
             )
 
         if (
@@ -148,7 +154,8 @@ def run_sanity_check(test_dir):
             WARNING_COUNT += 1
             print(
                 FAIL_COLOR
-                + "You do not seem to have TWO separate test cases, one for each possible prediction that your model can make."
+                + "You do not seem to have TWO separate test cases, one for each "
+                "possible prediction that your model can make."
             )
 
     SANITY_TEST_PASSING = (
@@ -165,11 +172,13 @@ def run_sanity_check(test_dir):
 
     print(
         WARN_COLOR
-        + "This is a heuristic based sanity testing and cannot guarantee the correctness of your code."
+        + "This is a heuristic based sanity testing and cannot guarantee the "
+        "correctness of your code."
     )
     print(
         WARN_COLOR
-        + "You should still check your work against the rubric to ensure you meet the criteria."
+        + "You should still check your work against the rubric to ensure you "
+        "meet the criteria."
     )
 
 

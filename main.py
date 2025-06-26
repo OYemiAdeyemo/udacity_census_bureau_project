@@ -6,9 +6,12 @@ import os
 import uvicorn
 
 app = FastAPI()
+
+
 @app.get("/")
 async def root() -> dict:
     return {"message": "Welcome to the Census Income Prediction API!"}
+
 
 # Example column names with hyphens
 # Assume your model expects these features:
